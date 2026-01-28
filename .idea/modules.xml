@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/finalniProjekt.iml" filepath="$PROJECT_DIR$/finalniProjekt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jackson-demo.iml" filepath="$PROJECT_DIR$/jackson-demo.iml" />
     </modules>
   </component>
 </project>
