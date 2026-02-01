@@ -1,0 +1,64 @@
+{
+  "start": "Úklidová místnost",
+
+  "lokace": [
+    {
+      "nazev": "Centrální mozek",
+      "popis": "Hlavní řídící centrum celého komplexu.",
+      "vychody": {
+        "východ": "Serverovna",
+        "jih": "Kancelář správce"
+      }
+    },
+    {
+      "nazev": "Serverovna",
+      "popis": "Místnost plná hučících serverů.",
+      "vychody": {
+        "západ": "Centrální mozek",
+        "východ": "Skladiště",
+        "jih": "Úklidová místnost"
+      }
+    },
+    {
+      "nazev": "Skladiště",
+      "popis": "Regály plné starého vybavení.",
+      "vychody": {
+        "západ": "Serverovna",
+        "jih": "Centrální chodba"
+      }
+    },
+    {
+      "nazev": "Kancelář správce",
+      "popis": "Kancelář správce objektu.",
+      "vychody": {
+        "sever": "Centrální mozek",
+        "východ": "Úklidová místnost"
+      }
+    },
+    {
+      "nazev": "Úklidová místnost",
+      "popis": "Malá místnost s čisticími prostředky.",
+      "vychody": {
+        "sever": "Serverovna",
+        "západ": "Kancelář správce",
+        "východ": "Centrální chodba"
+      }
+    },
+    {
+      "nazev": "Centrální chodba",
+      "popis": "Dlouhá chodba spojující různé části budovy.",
+      "vychody": {
+        "západ": "Úklidová místnost",
+        "sever": "Skladiště",
+        "jih": "Výtahová šachta"
+      }
+    },
+    {
+      "nazev": "Výtahová šachta",
+      "popis": "Temná šachta vedoucí do nižších pater.",
+      "vychody": {
+        "sever": "Centrální chodba"
+      }
+    }
+  ]
+}
