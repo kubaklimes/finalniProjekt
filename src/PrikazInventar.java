@@ -1,11 +1,20 @@
 public class PrikazInventar implements Prikaz {
-    public void proved(String[] parametry){
 
-    }
-    public String getNazev(){
+    private final Hra hra;
 
-    }
-    public String getPopis(){
 
+    public PrikazInventar(Hra hra) {
+        this.hra = hra;
     }
+
+        public void proved(String[] parametry){
+            hra.getHrac().getInventar().vypisObsah();
+        }
+
+        public String getNazev(){
+            return "inventar";
+        }
+        public String getPopis(){
+            return "Vypíše obsah inventáře.";
+        }
 }

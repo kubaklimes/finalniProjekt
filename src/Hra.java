@@ -4,6 +4,7 @@ public class Hra {
 
     private Hrac hrac;
     private HerniSvet svet;
+    private PrikazovyManager prikazovyManager;
     private SpravceUkolu spravceUkolu;
     private boolean konec = false;
 
@@ -13,6 +14,8 @@ public class Hra {
 
         hrac = new Hrac(svet.getStartovniLokace());
         spravceUkolu = new SpravceUkolu();
+        prikazovyManager = new PrikazovyManager();
+        registrujPrikazy();
 
         Scanner sc = new Scanner(System.in);
 
@@ -32,20 +35,7 @@ public class Hra {
     }
 
     public void zpracujPrikaz(String vstup) {
-
-        if (vstup.equals("konec")) {
-            konecHry();
-            return;
-        }
-
-        if (vstup.startsWith("jdi ")) {
-            String smer = vstup.substring(4);
-            hrac.jdi(smer);
-            vypisAktualniLokaci();
-            return;
-        }
-
-        System.out.println("Neznámý příkaz.");
+        prikazovyManager.vykonejPrikaz(vstup);
     }
 
     private void vypisAktualniLokaci() {
@@ -64,5 +54,13 @@ public class Hra {
 
     public SpravceUkolu getSpravceUkolu() {
         return spravceUkolu;
+    }
+    private void registrujPrikazy() {
+        prikazovyManager.registrujPrikaz(new PrikazJdi(this));
+        prikazovyManager.registrujPrikaz(new PrikazMluv(this));
+        prikazovyManager.registrujPrikaz(new PrikazPouzij(this));
+        prikazovyManager.registrujPrikaz(new PrikazInventar(this));
+        prikazovyManager.registrujPrikaz(new PrikazKonec(this));
+        prikazovyManager.registrujPrikaz(new PrikazNapoveda(prikazovyManager));
     }
 }
