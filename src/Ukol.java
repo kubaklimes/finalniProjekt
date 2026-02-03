@@ -9,6 +9,9 @@ public class Ukol {
             this.popis = popis;
             this.splnen = false;
         }
+        public void funkce(){
+
+        }
 
         public String getNazev(){
             return nazev;
