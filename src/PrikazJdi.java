@@ -1,4 +1,3 @@
-
 public class PrikazJdi implements Prikaz {
     private final Hra hra;
 
@@ -17,7 +16,6 @@ public class PrikazJdi implements Prikaz {
     public String getNazev(){
         return "jdi";
             }
-
             public String getPopis(){
                                return "Přesun do jiné lokace (jdi <směr>).";
             }

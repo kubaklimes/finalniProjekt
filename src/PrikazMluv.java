@@ -5,7 +5,7 @@ public class PrikazMluv implements Prikaz {
             this.hra = hra;
         }
 
-            public void proved(String[] parametry){
+        public void proved(String[] parametry){
                 if (parametry.length < 2) {
                     System.out.println("Použití: mluv <jméno>");
                     return;

@@ -5,7 +5,7 @@ public class Hrac {
 
     public Hrac(Lokace start) {
         this.aktualniLokace = start;
-        this.inventar = new Inventar(5); // kapacita inventáře
+        this.inventar = new Inventar(5);
     }
 
     public void jdi(String smer) {

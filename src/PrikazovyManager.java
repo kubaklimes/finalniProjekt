@@ -12,11 +12,11 @@ public class PrikazovyManager {
             System.out.println("Zadej příkaz.");
             return;
         }
-        String[] casti = vstup.trim().split("\\s+");
+        String[] casti = vstup.trim().split(" ");
         String nazev = casti[0];
         Prikaz prikaz = prikazy.get(nazev);
         if (prikaz == null) {
-            System.out.println("Neznámý příkaz. Napiš \"napoveda\".");
+            System.out.println("Neznámý příkaz. Napiš napoveda");
             return;
         }
         prikaz.proved(casti);

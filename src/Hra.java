@@ -10,7 +10,7 @@ public class Hra {
 
     public void start() {
         svet = new HerniSvet();
-        svet.nactiZeSouboru("svet.json");
+        svet.nactiZeSouboru("resource/svet.json");
 
         hrac = new Hrac(svet.getStartovniLokace());
         spravceUkolu = new SpravceUkolu();

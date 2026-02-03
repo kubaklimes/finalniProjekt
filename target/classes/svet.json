@@ -4,6 +4,7 @@
   "lokace": [
     {
       "nazev": "Centrální mozek",
+      "isLocked": false,
       "popis": "Hlavní řídící centrum celého komplexu.",
       "vychody": {
         "východ": "Serverovna",
@@ -12,6 +13,7 @@
     },
     {
       "nazev": "Serverovna",
+      "isLocked": false,
       "popis": "Místnost plná hučících serverů.",
       "vychody": {
         "západ": "Centrální mozek",
@@ -21,6 +23,7 @@
     },
     {
       "nazev": "Skladiště",
+      "isLocked": false,
       "popis": "Regály plné starého vybavení.",
       "vychody": {
         "západ": "Serverovna",
@@ -29,6 +32,7 @@
     },
     {
       "nazev": "Kancelář správce",
+      "isLocked": false,
       "popis": "Kancelář správce objektu.",
       "vychody": {
         "sever": "Centrální mozek",
@@ -37,6 +41,7 @@
     },
     {
       "nazev": "Úklidová místnost",
+      "isLocked": false,
       "popis": "Malá místnost s čisticími prostředky.",
       "vychody": {
         "sever": "Serverovna",
@@ -46,6 +51,7 @@
     },
     {
       "nazev": "Centrální chodba",
+      "isLocked": false,
       "popis": "Dlouhá chodba spojující různé části budovy.",
       "vychody": {
         "západ": "Úklidová místnost",
@@ -55,6 +61,7 @@
     },
     {
       "nazev": "Výtahová šachta",
+      "isLocked": true,
       "popis": "Temná šachta vedoucí do nižších pater.",
       "vychody": {
         "sever": "Centrální chodba"

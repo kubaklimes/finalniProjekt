@@ -10,7 +10,6 @@ public class Bzucak extends Postava {
             System.out.println("Bzučák: Zkus se rozhlédnout a mluvit s postavami.");
         }
 
-        @Override
         public void mluv() {
             System.out.println("Bzučák: Vždycky je nějaká cesta dál.");
         }

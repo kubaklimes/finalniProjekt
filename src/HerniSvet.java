@@ -15,12 +15,10 @@ public class HerniSvet {
         public void nactiZeSouboru(String cesta) {
                 try {
                         JsonObject root = JsonParser.parseReader(new FileReader(cesta)).getAsJsonObject();
-
                         for (JsonElement e : root.getAsJsonArray("lokace")) {
                                 JsonObject obj = e.getAsJsonObject();
                                 String nazev = obj.get("nazev").getAsString();
                                 String popis = obj.get("popis").getAsString();
-
                                 lokace.put(nazev, new Lokace(nazev, popis));
                         }
 
