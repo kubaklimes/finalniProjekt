@@ -10,6 +10,10 @@ public class Bzucak extends Postava {
             System.out.println("Bzučák: Zkus se rozhlédnout a mluvit s postavami.");
         }
 
+        public void napovedaKPostupu(String text){
+            System.out.println("Bzučák: " + text);
+        }
+
         public void mluv() {
             System.out.println("Bzučák: Vždycky je nějaká cesta dál.");
         }

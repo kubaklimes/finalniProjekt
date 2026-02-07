@@ -1,13 +1,13 @@
 public class PrikazNapoveda implements Prikaz {
-    private final PrikazovyManager manager;
+    private final Hra hra;
 
-    public PrikazNapoveda(PrikazovyManager manager) {
-        this.manager = manager;
+    public PrikazNapoveda(Hra hra) {
+        this.hra = hra;
     }
 
 
     public void proved(String[] parametry) {
-        manager.vypisNapovedu();
+        hra.vypisNapovedu();
     }
 
 
@@ -17,6 +17,6 @@ public class PrikazNapoveda implements Prikaz {
 
 
     public String getPopis() {
-        return "Vypíše seznam dostupných příkazů.";
+        return "Dá radu jak postupovat dál.";
     }
 }

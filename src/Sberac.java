@@ -4,10 +4,34 @@ public class Sberac extends DialogovaPostava {
     }
 
     public void prijmiBaterie(){
-        System.out.println("Sběrač: Díky za baterie.");
+        System.out.println("Sběrač: Díky za baterie. Budu vděčný navždy.");
     }
 
     public void mluv() {
         System.out.println("Sběrač: Hledám baterie do sběrače.");
+    }
+
+    @Override
+    protected void vypisUvod(Hra hra) {
+        System.out.println("Sběrač: Máš pro mě baterie?");
+        System.out.println("1) Předat baterie.");
+        System.out.println("2) Ještě je hledám.");
+    }
+
+    @Override
+    protected void zpracujOdpoved(int volba, Hra hra) {
+        if (volba == 1) {
+            Inventar inventar = hra.getHrac().getInventar();
+            if (!inventar.obsahuje("Baterie")) {
+                System.out.println("Sběrač: Žádné baterie u tebe nevidím.");
+                return;
+            }
+            inventar.odeberPredmet("Baterie");
+            prijmiBaterie();
+            hra.splnUkol("Baterie");
+            hra.ukonciDialog();
+            return;
+        }
+        System.out.println("Sběrač: Tak je najdi ve starých kancelářích.");
     }
 }

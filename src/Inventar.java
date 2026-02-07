@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class Inventar {
 
@@ -36,6 +37,21 @@ public class Inventar {
         }
         System.out.println("Předmět \"" + nazev + "\" v inventáři není.");
     }
+
+    public Predmet odeberPredmetBezHlaseni(String nazev) {
+        Predmet predmet = getPredmet(nazev);
+        if (predmet != null) {
+            predmety.remove(predmet);
+        }
+        return predmet;
+    }
+
+    public Predmet odeberPosledniPredmet() {
+        if (predmety.isEmpty()) {
+            return null;
+        }
+        return predmety.remove(predmety.size() - 1);
+    }
     public boolean obsahuje(String nazev){
         return getPredmet(nazev) != null;
     }
@@ -61,4 +77,8 @@ public class Inventar {
         }
         return null;
         }
+
+    public List<Predmet> getPredmety() {
+        return Collections.unmodifiableList(predmety);
+    }
     }

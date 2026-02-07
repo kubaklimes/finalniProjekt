@@ -19,7 +19,8 @@ public class HerniSvet {
                                 JsonObject obj = e.getAsJsonObject();
                                 String nazev = obj.get("nazev").getAsString();
                                 String popis = obj.get("popis").getAsString();
-                                lokace.put(nazev, new Lokace(nazev, popis));
+                                boolean zamcena = obj.has("isLocked") && obj.get("isLocked").getAsBoolean();
+                                lokace.put(nazev, new Lokace(nazev, popis, zamcena));
                         }
 
                         for (JsonElement e : root.getAsJsonArray("lokace")) {
@@ -43,5 +44,9 @@ public class HerniSvet {
 
         public Lokace getStartovniLokace() {
                 return startovniLokace;
+        }
+
+        public Lokace getLokace(String nazev) {
+                return lokace.get(nazev);
         }
 }

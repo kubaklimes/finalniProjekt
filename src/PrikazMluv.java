@@ -10,14 +10,18 @@ public class PrikazMluv implements Prikaz {
                     System.out.println("Použití: mluv <jméno>");
                     return;
                 }
-                String jmeno = parametry[1];
+                String jmeno = String.join(" ", java.util.Arrays.copyOfRange(parametry, 1, parametry.length));
                 Lokace lokace = hra.getHrac().getAktualniLokace();
                 Postava postava = lokace.getPostavu(jmeno);
                 if (postava == null) {
                     System.out.println("Postava \"" + jmeno + "\" tu není.");
                     return;
                 }
-                postava.mluv();
+                if (postava instanceof DialogovaPostava dialogovaPostava) {
+                    hra.zahajDialog(dialogovaPostava);
+                } else {
+                    postava.mluv();
+                }
             }
             public String getNazev(){
                 return "mluv";

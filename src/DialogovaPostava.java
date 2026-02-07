@@ -5,21 +5,29 @@ public abstract class DialogovaPostava extends Postava {
             super(jmeno);
         }
 
-        public void zahajDialog(){
+        public void zahajDialog(Hra hra){
             dialogAktivni = true;
-            System.out.println(getJmeno() + ": Začínáme dialog.");
+            vypisUvod(hra);
         }
 
-            public void odpovez(int volba){
+            public void odpovez(int volba, Hra hra){
                 if (!dialogAktivni) {
                     System.out.println(getJmeno() + ": Nejdřív se mnou začni dialog.");
                     return;
                 }
-                System.out.println(getJmeno() + ": Zvolil jsi možnost " + volba + ".");
+                zpracujOdpoved(volba, hra);
             }
 
                 public void ukoncitDialog(){
                     dialogAktivni = false;
                     System.out.println(getJmeno() + ": Dialog ukončen.");
                 }
+
+                public boolean jeDialogAktivni() {
+                    return dialogAktivni;
+                }
+
+                protected abstract void vypisUvod(Hra hra);
+
+                protected abstract void zpracujOdpoved(int volba, Hra hra);
             }

@@ -10,7 +10,7 @@ public class PrikazPouzij implements Prikaz {
                     System.out.println("Použití: pouzij <předmět>");
                     return;
                 }
-                String nazev = parametry[1];
+                String nazev = String.join(" ", java.util.Arrays.copyOfRange(parametry, 1, parametry.length));
                 Inventar inventar = hra.getHrac().getInventar();
                 Predmet predmet = inventar.getPredmet(nazev);
                 if (predmet == null) {

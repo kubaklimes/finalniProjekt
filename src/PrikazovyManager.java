@@ -13,7 +13,7 @@ public class PrikazovyManager {
             return;
         }
         String[] casti = vstup.trim().split(" ");
-        String nazev = casti[0];
+        String nazev = casti[0].toLowerCase();
         Prikaz prikaz = prikazy.get(nazev);
         if (prikaz == null) {
             System.out.println("Neznámý příkaz. Napiš napoveda");
