@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.text.Normalizer;
 
 public class Lokace {
 
@@ -9,10 +10,13 @@ public class Lokace {
     private Map<String, Lokace> vychody;
     private Map<String, Predmet> predmety;
     private Map<String, Postava> postavy;
+    private boolean zamcena;
+    private boolean navstivena;
 
-    public Lokace(String nazev, String popis) {
+    public Lokace(String nazev, String popis,boolean zamcena) {
         this.nazev = nazev;
         this.popis = popis;
+        this.zamcena = zamcena;
         this.vychody = new HashMap<>();
         this.predmety = new HashMap<>();
         this.postavy = new HashMap<>();
@@ -24,6 +28,21 @@ public class Lokace {
 
     public String getPopis() {
         return popis;
+    }
+    public boolean jeZamcena() {
+        return zamcena;
+    }
+
+    public void odemkni() {
+        this.zamcena = false;
+    }
+
+    public boolean jeNavstivena() {
+        return navstivena;
+    }
+
+    public void oznacNavstivenou() {
+        navstivena = true;
     }
 
     public void pridejVychod(String smer, Lokace lokace) {
@@ -42,12 +61,54 @@ public class Lokace {
         predmety.remove(nazev);
     }
 
+    public Predmet getPredmet(String nazev) {
+        if (nazev == null) {
+            return null;
+        }
+        String hledany = normalizujText(nazev);
+        for (Predmet predmet : predmety.values()) {
+            if (normalizujText(predmet.getNazev()).equals(hledany)) {
+                return predmet;
+            }
+        }
+        return null;
+    }
+
     public void pridejPostavu(Postava postava) {
         postavy.put(postava.getJmeno(), postava);
     }
 
     public Postava getPostavu(String jmeno) {
-        return postavy.get(jmeno);
+        if (jmeno == null) {
+            return null;
+        }
+        String hledany = normalizujText(jmeno);
+        for (Postava postava : postavy.values()) {
+            if (normalizujText(postava.getJmeno()).equals(hledany)) {
+                return postava;
+            }
+        }
+        return null;
+    }
+
+    public void vypisPredmety() {
+        if (predmety.isEmpty()) {
+            return;
+        }
+        System.out.println("Předměty v lokaci:");
+        for (Predmet predmet : predmety.values()) {
+            System.out.println("- " + predmet.getNazev() + ": " + predmet.getPopis());
+        }
+    }
+
+    public void vypisPostavy() {
+        if (postavy.isEmpty()) {
+            return;
+        }
+        System.out.println("Postavy v lokaci:");
+        for (Postava postava : postavy.values()) {
+            System.out.println("- " + postava.getJmeno());
+        }
     }
 
     public void vypisVychody() {
@@ -56,6 +117,11 @@ public class Lokace {
             System.out.print(smer + " ");
         }
         System.out.println();
+    }
+    private String normalizujText(String text) {
+        String normalized = Normalizer.normalize(text, Normalizer.Form.NFD);
+        normalized = normalized.replaceAll("\\p{M}", "");
+        return normalized.toLowerCase();
     }
 
 }

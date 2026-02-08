@@ -11,7 +11,7 @@ public class PrikazJdi implements Prikaz {
             return;
         }
         String smer = parametry[1];
-        hra.getHrac().jdi(smer);
+        hra.pohniHrace(smer);
     }
     public String getNazev(){
         return "jdi";

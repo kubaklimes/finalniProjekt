@@ -36,4 +36,12 @@ public class SpravceUkolu {
         String stav = ukol.jeSplnen() ? "splněno" : "nesplněno";
         System.out.println(ukol.getNazev() + ": " + ukol.getPopis() + " (" + stav + ")");
     }
+    public Ukol getUkol(String nazev) {
+        return ukoly.get(nazev);
+    }
+
+    public boolean jeUkolSplnen(String nazev) {
+        Ukol ukol = ukoly.get(nazev);
+        return ukol != null && ukol.jeSplnen();
+    }
 }

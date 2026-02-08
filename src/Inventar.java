@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.text.Normalizer;
 
 public class Inventar {
 
@@ -36,6 +38,21 @@ public class Inventar {
         }
         System.out.println("Předmět \"" + nazev + "\" v inventáři není.");
     }
+    public Predmet odeberPredmetBezHlaseni(String nazev) {
+        Predmet predmet = getPredmet(nazev);
+        if (predmet != null) {
+            predmety.remove(predmet);
+        }
+        return predmet;
+    }
+
+    public Predmet odeberPosledniPredmet() {
+        if (predmety.isEmpty()) {
+            return null;
+        }
+        return predmety.remove(predmety.size() - 1);
+    }
+
     public boolean obsahuje(String nazev){
         return getPredmet(nazev) != null;
     }
@@ -54,11 +71,21 @@ public class Inventar {
         if (nazev == null) {
             return null;
         }
+        String hledany = normalizujText(nazev);
         for (Predmet predmet : predmety) {
-            if (predmet.getNazev().equalsIgnoreCase(nazev)) {
+            if (normalizujText(predmet.getNazev()).equals(hledany)) {
                 return predmet;
             }
         }
         return null;
         }
+
+    public List<Predmet> getPredmety() {
+        return Collections.unmodifiableList(predmety);
+    }
+    private String normalizujText(String text) {
+        String normalized = Normalizer.normalize(text, Normalizer.Form.NFD);
+        normalized = normalized.replaceAll("\\p{M}", "");
+        return normalized.toLowerCase();
+    }
     }

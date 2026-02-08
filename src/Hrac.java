@@ -5,19 +5,7 @@ public class Hrac {
 
     public Hrac(Lokace start) {
         this.aktualniLokace = start;
-        this.inventar = new Inventar(5);
-    }
-
-    public void jdi(String smer) {
-        Lokace nova = aktualniLokace.getVychod(smer);
-
-        if (nova != null) {
-            presunSe(nova);
-            System.out.println("Přesunul ses do: " + aktualniLokace.getNazev());
-            System.out.println(aktualniLokace.getPopis());
-        } else {
-            System.out.println("Tímto směrem se jít nedá.");
-        }
+        this.inventar = new Inventar(2);
     }
 
     public void vypisPolohu() {
