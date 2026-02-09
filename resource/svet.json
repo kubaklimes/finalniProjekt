@@ -62,7 +62,7 @@
     {
       "nazev": "Výtahová šachta",
       "isLocked": true,
-      "popis": "Temná šachta vedoucí do nižších pater.",
+      "popis": "Temná šachta vedoucí do bezpečí z bunkru.",
       "vychody": {
         "sever": "Centrální chodba"
       }

@@ -18,7 +18,7 @@ public class CentralniTerminal extends DialogovaPostava {
         System.out.println("Který z těchto obvodů je nejtišší?");
         System.out.println("1) Přetížený.");
         System.out.println("2) Vypnutý.");
-        System.out.println("3) Iskřící.");
+        System.out.println("3) Jiskřící.");
     }
 
 

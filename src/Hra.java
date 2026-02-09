@@ -141,7 +141,7 @@ public class Hra {
             return;
         }
         if (nova.jeZamcena()) {
-            System.out.println("Dveře jsou zamčené. Potřebuješ přístup.");
+            System.out.println("Dveře jsou zamčené. Potřebuješ přístup ID kartou.");
             return;
         }
         if ("Centrální mozek".equals(nova.getNazev()) && !maSplneneUvodniUkoly()) {
@@ -323,7 +323,7 @@ public class Hra {
 
     public void zahajHackovani() {
         hackovaniAktivni = true;
-        integritaSystemu = 4;
+        integritaSystemu = 6;
         if (hektor != null) {
             hektor.resetZivoty();
             hektor.zahajHackovani();
@@ -339,9 +339,13 @@ public class Hra {
             System.out.println("Systém nereaguje.");
             return;
         }
-        hektor.utok();
-        System.out.println("Tvůj útok zasáhl Hektora.");
-        protiutokHektora();
+        int zraneni = 1 + random.nextInt(2);
+        if (hektor.prijmiUtok(zraneni)) {
+            System.out.println("Tvůj útok zasáhl Hektora za " + zraneni + " body.");
+        } else {
+            System.out.println("Hektorův štít pohltil tvůj útok.");
+        }
+        hektorTah(false);
         zkontrolujHack();
     }
 
@@ -355,25 +359,51 @@ public class Hra {
             return;
         }
         System.out.println("Spouštíš obranný firewall. Snižuješ přicházející škody.");
-        protiutokHektoraZmensen();
+        hektorTah(true);
         zkontrolujHack();
     }
 
-    private void protiutokHektora() {
-        int zraneni = random.nextInt(2) + 1;
+    private void hektorTah(boolean obranaAktivni) {
+        if (hektor == null || hektor.jePorazen()) {
+            return;
+        }
+        if (hektor.jeNabity()) {
+            int zraneni = hektor.utokNabity(random);
+            zraneni = upravZraneniObranou(zraneni, obranaAktivni);
+            integritaSystemu -= zraneni;
+            System.out.println("Hektor spouští nabitý útok za " + zraneni + " bodů.");
+            vypisIntegritu();
+            return;
+        }
+        int volba = random.nextInt(100);
+        if (volba < 25) {
+            hektor.aktivujStit();
+            System.out.println("Hektor aktivuje ochranný štít.");
+            return;
+        }
+        if (volba < 50) {
+            hektor.nabijSe();
+            System.out.println("Hektor se nabíjí na silný útok.");
+            return;
+        }
+        int zraneni = hektor.utokNormal(random);
+        zraneni = upravZraneniObranou(zraneni, obranaAktivni);
         integritaSystemu -= zraneni;
-        System.out.println("Hektor protiútočí za " + zraneni + " body.");
-        System.out.println("Tvá integrita systému: " + integritaSystemu);
+        vypisIntegritu();
     }
 
-    private void protiutokHektoraZmensen() {
-        int zraneni = random.nextInt(2);
-        if (zraneni == 0) {
-            System.out.println("Útok jsi úplně odrazil.");
-        } else {
-            integritaSystemu -= zraneni;
-            System.out.println("Hektor tě zasáhl za " + zraneni + " bod.");
+    private int upravZraneniObranou(int zraneni, boolean obranaAktivni) {
+        if (!obranaAktivni) {
+            return zraneni;
         }
+        int snizene = Math.max(0, zraneni - 1);
+        if (snizene == 0) {
+            System.out.println("Obrana odrazila celý útok.");
+    }
+        return snizene;
+    }
+
+    private void vypisIntegritu() {
         System.out.println("Tvá integrita systému: " + integritaSystemu);
     }
 
@@ -383,8 +413,7 @@ public class Hra {
             hektorPorazen = true;
             System.out.println("Hektor je poražen. Bezpečnostní systém se restartuje.");
             splnUkol("Hektor");
-            splnUkol("Evakuace");
-            System.out.println("Výhra! Výtah je tvůj.");
+            System.out.println("Výhra! Utekl jsi na povrch živ a zdráv!");
             konecHry();
             return;
         }
@@ -394,9 +423,6 @@ public class Hra {
         }
     }
 
-    public boolean jeHektorPorazen() {
-        return hektorPorazen;
-    }
 
     public void oznamEvakuacniProtokol() {
         splnUkol("Evakuace");
@@ -413,15 +439,15 @@ public class Hra {
             return;
         }
         if (!spravceUkolu.jeUkolSplnen("ID karta")) {
-            bzucak.napovedaKPostupu("V centrálním mozku budeš muset vyřešit hádanku.");
+            bzucak.napovedaKPostupu("V centrálním mozku na tebe čeká odměna.");
             return;
         }
         if (!spravceUkolu.jeUkolSplnen("Hektor")) {
-            bzucak.napovedaKPostupu("Výtahová šachta skrývá Hektora. Připrav se.");
+            bzucak.napovedaKPostupu("Použij ID kartu u výtahové šachty v centrální chodbě.");
             return;
         }
         if (!spravceUkolu.jeUkolSplnen("Evakuace")) {
-            bzucak.napovedaKPostupu("Použij ID kartu u výtahové šachty v centrální chodbě.");
+            bzucak.napovedaKPostupu("Poraž Hektora pro svobodu.");
             return;
         }
         bzucak.napovedaKPostupu("Výtah je volný. Útěk je blízko.");
