@@ -118,10 +118,30 @@ public class Lokace {
         }
         System.out.println();
     }
+    public void vypisMapu() {
+        System.out.println();
+        System.out.println("           [Centrální mozek] ----- [Serverovna] ------------- [Skladiště]");
+        System.out.println("                   |                   |                            |");
+        System.out.println("         [Kancelář správce] -----  [Úklidová místnost] ----- [Centrální chodba]");
+        System.out.println("                                                                    |");
+        System.out.println("                                                            [Výtahová šachta]");
+        System.out.println();
+    }
+
     private String normalizujText(String text) {
-        String normalized = Normalizer.normalize(text, Normalizer.Form.NFD);
-        normalized = normalized.replaceAll("\\p{M}", "");
-        return normalized.toLowerCase();
+        if (text == null) return null;
+
+        return text
+                .toLowerCase()
+                .replace("ý", "y")
+                .replace("ě","e")
+                .replace("č","c")
+                .replace("í","i")
+                .replace("š","s")
+                .replace("ú","u")
+                .replace("ř","r")
+                .replace("á", "a")
+                .trim();
     }
 
 }

@@ -1,3 +1,5 @@
+import java.text.Normalizer;
+
 public class PrikazJdi implements Prikaz {
     private final Hra hra;
 
@@ -10,7 +12,7 @@ public class PrikazJdi implements Prikaz {
             System.out.println("Použití: jdi <směr>");
             return;
         }
-        String smer = parametry[1];
+        String smer = normalizujText(parametry[1]);
         hra.pohniHrace(smer);
     }
     public String getNazev(){
@@ -19,4 +21,14 @@ public class PrikazJdi implements Prikaz {
             public String getPopis(){
                                return "Přesun do jiné lokace (jdi <směr>).";
             }
+    private String normalizujText(String text) {
+        if (text == null) return null;
+
+        return text
+                .toLowerCase()
+                .replace("ý", "y")
+                .replace("á", "a")
+                .trim();
+    }
 }
+

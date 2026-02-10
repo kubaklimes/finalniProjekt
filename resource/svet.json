@@ -7,7 +7,7 @@
       "isLocked": false,
       "popis": "Hlavní řídící centrum celého komplexu.",
       "vychody": {
-        "východ": "Serverovna",
+        "vychod": "Serverovna",
         "jih": "Kancelář správce"
       }
     },
@@ -16,8 +16,8 @@
       "isLocked": false,
       "popis": "Místnost plná hučících serverů.",
       "vychody": {
-        "západ": "Centrální mozek",
-        "východ": "Skladiště",
+        "zapad": "Centrální mozek",
+        "vychod": "Skladiště",
         "jih": "Úklidová místnost"
       }
     },
@@ -26,7 +26,7 @@
       "isLocked": false,
       "popis": "Regály plné starého vybavení.",
       "vychody": {
-        "západ": "Serverovna",
+        "zapad": "Serverovna",
         "jih": "Centrální chodba"
       }
     },
@@ -36,7 +36,7 @@
       "popis": "Kancelář správce objektu.",
       "vychody": {
         "sever": "Centrální mozek",
-        "východ": "Úklidová místnost"
+        "vychod": "Úklidová místnost"
       }
     },
     {
@@ -45,8 +45,8 @@
       "popis": "Malá místnost s čisticími prostředky.",
       "vychody": {
         "sever": "Serverovna",
-        "západ": "Kancelář správce",
-        "východ": "Centrální chodba"
+        "zapad": "Kancelář správce",
+        "vychod": "Centrální chodba"
       }
     },
     {
@@ -54,7 +54,7 @@
       "isLocked": false,
       "popis": "Dlouhá chodba spojující různé části budovy.",
       "vychody": {
-        "západ": "Úklidová místnost",
+        "zapad": "Úklidová místnost",
         "sever": "Skladiště",
         "jih": "Výtahová šachta"
       }
