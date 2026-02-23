@@ -1,9 +1,19 @@
 public class IDKarta extends Predmet {
+    /**
+     * Hlavní definice třídy IDKarta.
+     *
+     * @author já
+     */
     public IDKarta() {
+        /**
+         * Vytvoří instanci třídy IDKarta.
+         */
         super("ID karta", "Autorizovaná karta pro přístup do šachty", true);
     }
 
-
+    /**
+     * Použije ID kartu, pokud jí máš, a výtah není odemčený.
+     */
     public void pouzij(Hra hra) {
         if (hra == null) {
             return;

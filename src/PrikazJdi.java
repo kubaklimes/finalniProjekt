@@ -1,13 +1,24 @@
 import java.text.Normalizer;
 
 public class PrikazJdi implements Prikaz {
+    /**
+     * Hlavní definice třídy PrikazJdi.
+     *
+     * @author uživatel
+     */
     private final Hra hra;
 
+    /**
+     * Vytvoří instanci třídy PrikazJdi.
+     */
     public PrikazJdi(Hra hra) {
         this.hra = hra;
         }
 
-        public void proved(String[] parametry){
+    /**
+     * Provede příkaz jdi.
+     */
+    public void proved(String[] parametry){
         if (parametry.length < 2) {
             System.out.println("Použití: jdi <směr>");
             return;

@@ -1,4 +1,9 @@
 public class PrikazInventar implements Prikaz {
+    /**
+     * Hlavní definice třídy PrikazInventar.
+     *
+     * @author já
+     */
 
     private final Hra hra;
 
@@ -6,7 +11,9 @@ public class PrikazInventar implements Prikaz {
     public PrikazInventar(Hra hra) {
         this.hra = hra;
     }
-
+    /**
+     * Vypíše obsah inventáře.
+     */
         public void proved(String[] parametry){
             hra.getHrac().getInventar().vypisObsah();
         }

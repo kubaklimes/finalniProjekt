@@ -1,14 +1,26 @@
 public class CentralniTerminal extends DialogovaPostava {
+    /**
+     * Hlavní definice třídy CentralniTerminal.
+     *
+     * @author já
+     */
     public CentralniTerminal() {
+        /**
+         * Vytvoří instanci třídy CentralniTerminal.
+         */
         super("Centrální terminál");
     }
 
-
+    /**
+     * Centrální terminál promluví.
+     */
     public void mluv() {
         System.out.println("Centrální terminál: Přístup k autorizaci je omezen.");
     }
 
-
+    /**
+     * Vypíše se hádanka pokud už máš splněné dva úkoly.
+     */
     protected void vypisUvod(Hra hra) {
         if (!hra.maSplneneUvodniUkoly()) {
             System.out.println("Centrální terminál: Přístup odmítnut. Získej důvěru robotů.");
@@ -21,7 +33,9 @@ public class CentralniTerminal extends DialogovaPostava {
         System.out.println("3) Jiskřící.");
     }
 
-
+    /**
+     * Zkontroluje zdali máš správně hádanku, a pokud ano vydá ti ID kartu.
+     */
     protected void zpracujOdpoved(int volba, Hra hra) {
         if (!hra.maSplneneUvodniUkoly()) {
             return;

@@ -1,11 +1,21 @@
 public class PrikazNapoveda implements Prikaz {
+    /**
+     * Hlavní definice třídy PrikazNapoveda.
+     *
+     * @author já
+     */
     private final PrikazovyManager manager;
 
+    /**
+     * Vytvoří instanci třídy PrikazNapoveda.
+     */
     public PrikazNapoveda(PrikazovyManager manager) {
         this.manager = manager;
     }
 
-
+    /**
+     * Vypíše nápovědu.
+     */
     public void proved(String[] parametry) {
         manager.vypisNapovedu();
     }

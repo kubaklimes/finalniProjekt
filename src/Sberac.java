@@ -1,4 +1,9 @@
 public class Sberac extends DialogovaPostava {
+    /**
+     * Hlavní definice třídy Sberac.
+     *
+     * @author já
+     */
     public Sberac() {
         super("Sběrač");
     }
@@ -11,14 +16,18 @@ public class Sberac extends DialogovaPostava {
         System.out.println("Sběrač: Hledám baterie do sběrače.");
     }
 
-
+    /**
+     * Vypíše úvodní text sběrače.
+     */
     protected void vypisUvod(Hra hra) {
         System.out.println("Sběrač: Máš pro mě baterie?");
         System.out.println("1) Předat baterie.");
         System.out.println("2) Ještě je hledám.");
     }
 
-
+    /**
+     * Zpracuje odpověd od uživatele, a zárověn zkontroluje jestlí má uživatel Baterie pro něj.
+     */
     protected void zpracujOdpoved(int volba, Hra hra) {
         if (volba == 1) {
             Inventar inventar = hra.getHrac().getInventar();

@@ -1,10 +1,19 @@
 public abstract class DialogovaPostava extends Postava {
+    /**
+     * Hlavní definice třídy DialogovaPostava.
+     *
+     * @author já
+     */
     private boolean dialogAktivni;
-
+    /**
+     * Vytvoří instanci třídy DialogovaPostava.
+     */
     protected DialogovaPostava(String jmeno) {
             super(jmeno);
         }
-
+    /**
+     * Zahájí dialog s mluvícíma postavama.
+     */
         public void zahajDialog(Hra hra){
             dialogAktivni = true;
             vypisUvod(hra);

@@ -1,11 +1,18 @@
 public class PrikazOdpovez implements Prikaz {
+    /**
+     * Hlavní definice třídy PrikazOdpovez.
+     *
+     * @author já
+     */
     private final Hra hra;
 
     public PrikazOdpovez(Hra hra) {
         this.hra = hra;
     }
 
-
+    /**
+     * Provede operaci odpovězení k postavám dialogem.
+     */
     public void proved(String[] parametry) {
         if (parametry.length < 2) {
             System.out.println("Použití: odpovez <číslo>");

@@ -1,4 +1,9 @@
 public abstract class Postava {
+    /**
+     * Hlavní definice třídy Postava.
+     *
+     * @author já
+     */
     private final String jmeno;
 
     protected Postava(String jmeno) {

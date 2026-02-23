@@ -1,11 +1,22 @@
 public class PrikazDetail implements Prikaz {
+    /**
+     * Hlavní definice třídy PrikazDetail.
+     *
+     * @author já
+     */
     private final Hra hra;
 
+
+    /**
+     * Vytvoří instanci třídy PrikazDetail.
+     */
     public PrikazDetail(Hra hra) {
         this.hra = hra;
     }
 
-
+    /**
+     * Vypíše detail úkolu.
+     */
     public void proved(String[] parametry) {
         if (parametry.length < 2) {
             System.out.println("Použití: detail <úkol>");

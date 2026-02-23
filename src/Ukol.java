@@ -1,4 +1,9 @@
 public class Ukol {
+    /**
+     * Hlavní definice třídy Ukol.
+     *
+     * @author já
+     */
     private final String nazev;
     private final String popis;
     private boolean splnen;

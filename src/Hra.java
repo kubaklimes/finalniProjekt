@@ -1,4 +1,3 @@
-import java.text.Normalizer;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -33,7 +32,7 @@ public class Hra {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Hra spuštěna.");
-        System.out.println("Marek se probouzí v úklidové místnosti.");
+        System.out.println("Marek se probouzí v zamčené úklidové skříni.");
         vypisAktualniLokaci();
         hrac.getAktualniLokace().oznacNavstivenou();
         bzucak.komentarKLokaci(hrac.getAktualniLokace());
@@ -57,12 +56,11 @@ public class Hra {
 
     private void vypisAktualniLokaci() {
         Lokace l = hrac.getAktualniLokace();
+        System.out.println("Nacházíš se v: " + l.getNazev());
+        System.out.println(l.getPopis());
         l.vypisPostavy();
         l.vypisPredmety();
         l.vypisVychody();
-        System.out.println("Nacházíš se v: " + l.getNazev());
-        System.out.println(l.getPopis());
-        l.vypisMapu();
     }
 
     public Hrac getHrac() {
@@ -127,7 +125,6 @@ public class Hra {
     }
 
     public void pohniHrace(String smer) {
-        smer = normalizujText(smer);
         if (hackovaniAktivni) {
             System.out.println("Nemůžeš odejít během hackování.");
             return;
@@ -228,15 +225,6 @@ public class Hra {
             default:
                 return nazev;
         }
-    }
-    private String normalizujText(String text) {
-        if (text == null) return null;
-
-        return text
-                .toLowerCase()
-                .replace("ý", "y")
-                .replace("á", "a")
-                .trim();
     }
 
     private void kontrolaPrachu(Lokace nova, boolean odchaziZChodby) {

@@ -1,11 +1,18 @@
 public class PrikazVstup implements Prikaz {
+    /**
+     * Hlavní definice třídy PrikazVstup.
+     *
+     * @author já
+     */
     private final Hra hra;
 
     public PrikazVstup(Hra hra) {
         this.hra = hra;
     }
 
-
+    /**
+     * Vstoupí do místnosti, spíše se používá na výtah.
+     */
     public void proved(String[] parametry) {
         if (parametry.length < 2) {
             System.out.println("Použití: vstup <místo>");

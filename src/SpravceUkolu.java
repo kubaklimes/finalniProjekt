@@ -1,12 +1,22 @@
 public class SpravceUkolu {
+    /**
+     * Hlavní definice třídy SpravceUkolu.
+     *
+     * @author já
+     */
     private final java.util.Map<String, Ukol> ukoly = new java.util.HashMap<>();
-
+    /**
+     * Přidá úkol do hry.
+     */
     public void pridejUkol(Ukol ukol){
         if (ukol == null) {
             return;
         }
         ukoly.put(ukol.getNazev(), ukol);
     }
+    /**
+     * Splní úkol pokud existuje.
+     */
     public void splnitUkol(String nazev){
         Ukol ukol = ukoly.get(nazev);
         if (ukol == null) {
@@ -16,6 +26,9 @@ public class SpravceUkolu {
         ukol.splnit();
         System.out.println("Ukol \"" + nazev + "\" byl splněn.");
     }
+    /**
+     * Vypíše úkoly.
+     */
     public void vypisUkoly(){
         if (ukoly.isEmpty()) {
             System.out.println("Žádné úkoly nejsou aktivní.");
@@ -27,6 +40,9 @@ public class SpravceUkolu {
             System.out.println("- " + ukol.getNazev() + " (" + stav + ")");
         }
     }
+    /**
+     * Vypíše detail úkolu, jestli je splněný nebo není.
+     */
     public void detailUkolu(String nazev){
         Ukol ukol = ukoly.get(nazev);
         if (ukol == null) {

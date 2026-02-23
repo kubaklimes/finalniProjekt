@@ -1,11 +1,18 @@
 public class PrikazSeber implements Prikaz {
+    /**
+     * Hlavní definice třídy PrikazSeber.
+     *
+     * @author já
+     */
     private final Hra hra;
 
     public PrikazSeber(Hra hra) {
         this.hra = hra;
     }
 
-
+    /**
+     * Sebere předmět pokud existuje, a je v místnosti.
+     */
     public void proved(String[] parametry) {
         if (parametry.length < 2) {
             System.out.println("Použití: seber <předmět>");

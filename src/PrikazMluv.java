@@ -1,10 +1,17 @@
 public class PrikazMluv implements Prikaz {
+    /**
+     * Hlavní definice třídy PrikazMluv.
+     *
+     * @author já
+     */
         private final Hra hra;
 
     public PrikazMluv(Hra hra) {
             this.hra = hra;
         }
-
+    /**
+     * Provede dialog s postavou, zkontroluje zdali nemá uživatel už úkoly splněné.
+     */
         public void proved(String[] parametry){
                 if (parametry.length < 2) {
                     System.out.println("Použití: mluv <jméno>");
@@ -32,10 +39,11 @@ public class PrikazMluv implements Prikaz {
                 postava.mluv();
             }
             }
-            public String getNazev(){
+
+     public String getNazev(){
                 return "mluv";
             }
-            public String getPopis(){
+     public String getPopis(){
                 return "Promluví s postavou v lokaci (mluv <jméno>).";
             }
         }

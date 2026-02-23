@@ -1,12 +1,23 @@
 public class Hektor extends DialogovaPostava {
+    /**
+     * Hlavní definice třídy Hektor.
+     *
+     * @author já,reddit
+     */
 
     private int zivoty = 5;
     private boolean stitAktivni;
     private boolean nabity;
 
+    /**
+     * Vytvoří instanci třídy Hektor.
+     */
     public Hektor() {
             super("Hektor");
         }
+    /**
+     * Resetne životy hektora.
+     */
     public void resetZivoty() {
         zivoty = 5;
         stitAktivni = false;
@@ -21,7 +32,9 @@ public class Hektor extends DialogovaPostava {
             public boolean jePorazen(){
                 return zivoty <= 0;
             }
-
+    /**
+     * Přijme útok od uzivatele, pokud nemá hektor aktivní štít.
+     */
             public boolean prijmiUtok(int zraneni) {
                 if (stitAktivni) {
                     stitAktivni = false;
@@ -58,14 +71,18 @@ public class Hektor extends DialogovaPostava {
             public void mluv() {
                 System.out.println("Hektor: Pokud chceš projít, musíš mě porazit.");
             }
-
+    /**
+     * Vypíše úvod Hektora.
+     */
     protected void vypisUvod(Hra hra) {
         System.out.println("Hektor: Jsi připraven na hackovací duel?");
         System.out.println("1) Začít hackování.");
         System.out.println("2) Odejdeme.");
     }
 
-
+    /**
+     * Zpracuje odpověd od uživatele.
+     */
     protected void zpracujOdpoved(int volba, Hra hra) {
         if (volba == 1) {
             hra.zahajHackovani();

@@ -1,10 +1,18 @@
 public class PrikazPouzij implements Prikaz {
+    /**
+     * Hlavní definice třídy PrikazPouzij.
+     *
+     * @author uživatel
+     */
         private final Hra hra;
 
     public PrikazPouzij(Hra hra) {
             this.hra = hra;
         }
 
+    /**
+     * Použije předmět pokud ho uživatel má.
+     */
             public void proved(String[] parametry){
                 if (parametry.length < 2) {
                     System.out.println("Použití: pouzij <předmět>");

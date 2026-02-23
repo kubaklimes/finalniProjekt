@@ -1,8 +1,19 @@
 public class Bzucak extends Postava {
+    /**
+     * Hlavní definice třídy Bzucak.
+     *
+     * @author já
+     */
     public Bzucak() {
+        /**
+         * Vytvoří instanci třídy Bzucak.
+         */
             super("Bzučák");
         }
 
+    /**
+     * Provede metodu komentarKLokaci, která popíše každou lokaci zvlášt.
+     */
         public void komentarKLokaci(Lokace lokace){
             String nazev = lokace.getNazev();
             String komentar;
@@ -34,16 +45,23 @@ public class Bzucak extends Postava {
             }
             System.out.println("Bzučák: " + komentar);
         }
+    /**
+     * Provede metodu napoveda, ktera ti poradí jak dale.
+     */
         public void napoveda(){
             System.out.println("Bzučák: Zkus se rozhlédnout a mluvit s postavami.");
         }
 
-
+    /**
+     * Provede metodu nápověda, ktera ti poradí jak dále.
+     */
     public void napovedaKPostupu(String text){
         System.out.println("Bzučák: " + text);
     }
 
-
+    /**
+     * Bzučák promluví.
+     */
     public void mluv() {
             System.out.println("Bzučák: Vždycky je nějaká cesta dál.");
         }
