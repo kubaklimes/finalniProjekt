@@ -3,6 +3,11 @@ import java.util.Map;
 import java.text.Normalizer;
 
 public class Lokace {
+    /**
+     * Hlavní definice třídy Lokace.
+     *
+     * @author já,stackoverflow
+     */
 
     private String nazev;
     private String popis;
@@ -14,6 +19,9 @@ public class Lokace {
     private boolean navstivena;
 
     public Lokace(String nazev, String popis,boolean zamcena) {
+        /**
+         * Vytvoří instanci třídy Lokace.
+         */
         this.nazev = nazev;
         this.popis = popis;
         this.zamcena = zamcena;
@@ -21,7 +29,9 @@ public class Lokace {
         this.predmety = new HashMap<>();
         this.postavy = new HashMap<>();
     }
-
+    /**
+     * Následující všechny metody dělají přesně to, jak se jmenují.
+     */
     public String getNazev() {
         return nazev;
     }
@@ -90,7 +100,9 @@ public class Lokace {
         }
         return null;
     }
-
+    /**
+     * Vypíše předměty v lokaci.
+     */
     public void vypisPredmety() {
         if (predmety.isEmpty()) {
             return;
@@ -100,7 +112,9 @@ public class Lokace {
             System.out.println("- " + predmet.getNazev() + ": " + predmet.getPopis());
         }
     }
-
+    /**
+     * Vypíše postavy v lokaci.
+     */
     public void vypisPostavy() {
         if (postavy.isEmpty()) {
             return;
@@ -110,7 +124,9 @@ public class Lokace {
             System.out.println("- " + postava.getJmeno());
         }
     }
-
+    /**
+     * Vypíše všechny možné východy z momentální místnosti.
+     */
     public void vypisVychody() {
         System.out.print("Východy: ");
         for (String smer : vychody.keySet()) {
@@ -118,6 +134,9 @@ public class Lokace {
         }
         System.out.println();
     }
+    /**
+     * Normalizuje text aby byl bez diakritiky.
+     */
     private String normalizujText(String text) {
         String normalized = Normalizer.normalize(text, Normalizer.Form.NFD);
         normalized = normalized.replaceAll("\\p{M}", "");

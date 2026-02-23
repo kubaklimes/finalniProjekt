@@ -2,6 +2,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Hra {
+    /**
+     * Hlavní definice třídy Hra.
+     *
+     * @author já,stackoverflow,chatgpt
+     */
 
     private Hrac hrac;
     private HerniSvet svet;
@@ -17,7 +22,9 @@ public class Hra {
     private boolean hektorPorazen;
     private final Random random = new Random();
     private boolean konec = false;
-
+    /**
+     * Hlavní game loop,opakující se nekonečně krát, dokud se neukončí hra.
+     */
     public void start() {
         svet = new HerniSvet();
         svet.nactiZeSouboru("resource/svet.json");
@@ -53,7 +60,9 @@ public class Hra {
     public void zpracujPrikaz(String vstup) {
         prikazovyManager.vykonejPrikaz(vstup);
     }
-
+    /**
+     * Vypíše aktuální lokaci ve které se uživatel nachází.
+     */
     private void vypisAktualniLokaci() {
         Lokace l = hrac.getAktualniLokace();
         System.out.println("Nacházíš se v: " + l.getNazev());
@@ -74,6 +83,9 @@ public class Hra {
     public SpravceUkolu getSpravceUkolu() {
         return spravceUkolu;
     }
+    /**
+     * Přídání příkazů do příkazového manageru.
+     */
     private void registrujPrikazy() {
         prikazovyManager.registrujPrikaz(new PrikazJdi(this));
         prikazovyManager.registrujPrikaz(new PrikazVstup(this));
@@ -92,7 +104,9 @@ public class Hra {
         prikazovyManager.registrujPrikaz(new PrikazNapoveda(prikazovyManager));
         prikazovyManager.registrujPrikaz(new PrikazRada(this));
     }
-
+    /**
+     * Načte svět, a přídá úkoly potřebné pro výhru.
+     */
     private void pripravSvet() {
         Lokace skladiste = svet.getLokace("Skladiště");
         Lokace kancelar = svet.getLokace("Kancelář správce");
@@ -123,7 +137,9 @@ public class Hra {
         spravceUkolu.pridejUkol(new Ukol("Hektor", "Přelstít Hektora v hackování."));
         spravceUkolu.pridejUkol(new Ukol("Evakuace", "Odemknout výtahovou šachtu a uniknout."));
     }
-
+    /**
+     * Pohne hráče, zkontroluje jestli se dá nebo nedá jít do místnosti, kontrola prachu také.
+     */
     public void pohniHrace(String smer) {
         if (hackovaniAktivni) {
             System.out.println("Nemůžeš odejít během hackování.");
@@ -165,7 +181,9 @@ public class Hra {
             konecHry();
         }
     }
-
+    /**
+     * Dodatečný příkaz vstup do, skoro to samé jako hýbání.
+     */
     public void vstupDo(String nazev) {
         if (nazev == null || nazev.isBlank()) {
             System.out.println("Použití: vstup <místo>.");
@@ -189,7 +207,9 @@ public class Hra {
             System.out.println("Odtud se tam vstoupit nedá.");
         }
     }
-
+    /**
+     * Zajištění diakritiky.
+     */
     private String normalizujNazevLokace(String nazev) {
         String lower = nazev.toLowerCase();
         switch (lower) {
@@ -226,7 +246,9 @@ public class Hra {
                 return nazev;
         }
     }
-
+    /**
+     * Kontrola prachu.
+     */
     private void kontrolaPrachu(Lokace nova, boolean odchaziZChodby) {
         if ("Centrální chodba".equals(nova.getNazev())) {
             if (!prachZiskan && opustilChodbu) {
@@ -242,7 +264,9 @@ public class Hra {
             opustilChodbu = false;
         }
     }
-
+    /**
+     * Přidání prachu do inventáře, pokud kontrola prachu projde.
+     */
     private void pridejPrach(Lokace nova) {
         Prach prach = new Prach();
         Inventar inventar = hrac.getInventar();
@@ -256,7 +280,9 @@ public class Hra {
             inventar.pridejPredmet(prach);
         }
     }
-
+    /**
+     * Zahájení dialogu s mluvící postavou.
+     */
     public void zahajDialog(DialogovaPostava postava) {
         if (aktivniDialog != null) {
             aktivniDialog.ukoncitDialog();
@@ -264,7 +290,9 @@ public class Hra {
         aktivniDialog = postava;
         postava.zahajDialog(this);
     }
-
+    /**
+     * Odpovezení k dialogu.
+     */
     public void odpovezDialogu(int volba) {
         if (aktivniDialog == null) {
             System.out.println("Žádný dialog není aktivní.");
@@ -281,13 +309,17 @@ public class Hra {
         aktivniDialog.ukoncitDialog();
         aktivniDialog = null;
     }
-
+    /**
+     * Kontrola zdali má splněné první dva potřebné úkoly k postoupení dál.
+     */
     public boolean maSplneneUvodniUkoly() {
         return spravceUkolu != null
                 && spravceUkolu.jeUkolSplnen("Baterie")
                 && spravceUkolu.jeUkolSplnen("Kabely");
     }
-
+    /**
+     * Splnění úkolu.
+     */
     public void splnUkol(String nazev) {
         spravceUkolu.splnitUkol(nazev);
         if ("Baterie".equals(nazev) || "Kabely".equals(nazev)) {
@@ -296,7 +328,9 @@ public class Hra {
             }
         }
     }
-
+    /**
+     * Získání ID karty pokud mám místo v inventáři.
+     */
     public void ziskejIDKartu() {
         Inventar inventar = hrac.getInventar();
         if (inventar.obsahuje("ID karta")) {
@@ -320,7 +354,9 @@ public class Hra {
             inventar.pridejPredmet(new IDKarta());
         }
     }
-
+    /**
+     * Zahájení boss fightu s Hektorem.
+     */
     public void zahajHackovani() {
         hackovaniAktivni = true;
         integritaSystemu = 6;
@@ -329,7 +365,9 @@ public class Hra {
             hektor.zahajHackovani();
         }
     }
-
+    /**
+     * Provede útok.
+     */
     public void provedUtok() {
         if (!hackovaniAktivni) {
             System.out.println("Teď není co hackovat.");
@@ -348,7 +386,9 @@ public class Hra {
         hektorTah(false);
         zkontrolujHack();
     }
-
+    /**
+     * Provede obranu.
+     */
     public void provedObranu() {
         if (!hackovaniAktivni) {
             System.out.println("Teď není co hackovat.");
@@ -362,7 +402,9 @@ public class Hra {
         hektorTah(true);
         zkontrolujHack();
     }
-
+    /**
+     * Hektor zaútočí.
+     */
     private void hektorTah(boolean obranaAktivni) {
         if (hektor == null || hektor.jePorazen()) {
             return;
@@ -391,7 +433,9 @@ public class Hra {
         integritaSystemu -= zraneni;
         vypisIntegritu();
     }
-
+    /**
+     * Obrana uzivatele.
+     */
     private int upravZraneniObranou(int zraneni, boolean obranaAktivni) {
         if (!obranaAktivni) {
             return zraneni;
@@ -402,11 +446,15 @@ public class Hra {
     }
         return snizene;
     }
-
+    /**
+     * Vypíše jak jsi na tom s HP.
+     */
     private void vypisIntegritu() {
-        System.out.println("Tvá integrita systému: " + integritaSystemu);
+        System.out.println("Tvé HP: " + integritaSystemu);
     }
-
+    /**
+     * Zkontroluje jestli jsi porazil Hektora, pokud ano, vyhráls!
+     */
     private void zkontrolujHack() {
         if (hektor != null && hektor.jePorazen()) {
             hackovaniAktivni = false;
@@ -423,12 +471,16 @@ public class Hra {
         }
     }
 
-
+    /**
+     * Konečná finální zpráva od Bzučáka.
+     */
     public void oznamEvakuacniProtokol() {
         splnUkol("Evakuace");
         bzucak.napovedaKPostupu("Výtah je otevřený. Stačí do něj vstoupit.");
     }
-
+    /**
+     * Vypíše nápovědu podle toho jaký úkol ti chybí, a následuje.
+     */
     public void vypisNapovedu() {
         if (!spravceUkolu.jeUkolSplnen("Baterie")) {
             bzucak.napovedaKPostupu("Baterie by měly být v kanceláři správce.");
