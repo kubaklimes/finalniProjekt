@@ -2,7 +2,7 @@ public class PrikazPouzij implements Prikaz {
     /**
      * Hlavní definice třídy PrikazPouzij.
      *
-     * @author uživatel
+     * @author Jakub Klimeš
      */
         private final Hra hra;
 

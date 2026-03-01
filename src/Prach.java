@@ -2,7 +2,7 @@ public class Prach extends Predmet {
     /**
      * Hlavní definice třídy Prach.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
 
     /**

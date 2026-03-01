@@ -2,7 +2,7 @@ public abstract class DialogovaPostava extends Postava {
     /**
      * Hlavní definice třídy DialogovaPostava.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private boolean dialogAktivni;
     /**

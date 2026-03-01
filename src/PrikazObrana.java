@@ -2,7 +2,7 @@ public class PrikazObrana implements Prikaz {
     /**
      * Hlavní definice třídy PrikazObrana.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final Hra hra;
 

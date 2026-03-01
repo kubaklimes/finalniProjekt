@@ -2,7 +2,7 @@ public class X100 extends DialogovaPostava {
     /**
      * Hlavní definice třídy X100.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     public X100() {
         /**

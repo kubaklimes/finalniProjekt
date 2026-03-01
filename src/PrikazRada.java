@@ -2,7 +2,7 @@ public class PrikazRada implements Prikaz {
     /**
      * Hlavní definice třídy PrikazRada.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final Hra hra;
 

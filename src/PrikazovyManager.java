@@ -2,7 +2,7 @@ public class PrikazovyManager {
     /**
      * Hlavní definice třídy PrikazovyManager.
      *
-     * @author já,stackoverflow
+     * @author Jakub Klimeš,stackoverflow
      */
     private final java.util.Map<String, Prikaz> prikazy = new java.util.HashMap<>();
     /**

@@ -2,7 +2,7 @@ public class PrikazVstup implements Prikaz {
     /**
      * Hlavní definice třídy PrikazVstup.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final Hra hra;
 

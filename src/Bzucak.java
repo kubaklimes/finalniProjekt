@@ -2,7 +2,7 @@ public class Bzucak extends Postava {
     /**
      * Hlavní definice třídy Bzucak.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     public Bzucak() {
         /**

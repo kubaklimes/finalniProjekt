@@ -2,7 +2,7 @@ public class PrikazUkoly implements Prikaz {
     /**
      * Hlavní definice třídy PrikazUkoly.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final Hra hra;
 

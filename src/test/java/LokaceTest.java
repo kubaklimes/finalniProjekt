@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Testy třídy Lokace.
  *
- * @author já
+ * @author Jakub Klimeš
  */
 public class LokaceTest {
 

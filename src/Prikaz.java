@@ -2,7 +2,7 @@ public interface Prikaz {
     /**
      * Hlavní definice třídy Prikaz.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
 
 

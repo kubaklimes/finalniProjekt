@@ -2,7 +2,7 @@ public class PrikazUtok implements Prikaz {
     /**
      * Hlavní definice třídy PrikazUtok.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final Hra hra;
 

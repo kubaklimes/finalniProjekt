@@ -2,7 +2,7 @@ public class Hektor extends DialogovaPostava {
     /**
      * Hlavní definice třídy Hektor.
      *
-     * @author já,reddit
+     * @author Jakub Klimeš,reddit
      */
 
     private int zivoty = 5;

@@ -2,7 +2,7 @@ public class PrikazOdpovez implements Prikaz {
     /**
      * Hlavní definice třídy PrikazOdpovez.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final Hra hra;
 

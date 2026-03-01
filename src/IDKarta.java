@@ -2,7 +2,7 @@ public class IDKarta extends Predmet {
     /**
      * Hlavní definice třídy IDKarta.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     public IDKarta() {
         /**

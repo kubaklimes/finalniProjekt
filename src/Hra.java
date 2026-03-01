@@ -5,7 +5,7 @@ public class Hra {
     /**
      * Hlavní definice třídy Hra.
      *
-     * @author já,stackoverflow,chatgpt
+     * @author Jakub Klimeš,stackoverflow,chatgpt
      */
 
     private Hrac hrac;
@@ -27,7 +27,12 @@ public class Hra {
      */
     public void start() {
         svet = new HerniSvet();
-        svet.nactiZeSouboru("resource/svet.json");
+        svet.nactiZeSouboru("svet.json");
+
+        if (svet.getStartovniLokace() == null) {
+            System.out.println("Hru nelze spustit bez platně načteného světa.");
+            return;
+        }
 
         hrac = new Hrac(svet.getStartovniLokace());
         spravceUkolu = new SpravceUkolu();
@@ -64,6 +69,10 @@ public class Hra {
      * Vypíše aktuální lokaci ve které se uživatel nachází.
      */
     private void vypisAktualniLokaci() {
+        if (hrac == null || hrac.getAktualniLokace() == null) {
+            System.out.println("Aktuální lokaci se nepodařilo načíst.");
+            return;
+        }
         Lokace l = hrac.getAktualniLokace();
         System.out.println("Nacházíš se v: " + l.getNazev());
         System.out.println(l.getPopis());

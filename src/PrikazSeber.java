@@ -2,7 +2,7 @@ public class PrikazSeber implements Prikaz {
     /**
      * Hlavní definice třídy PrikazSeber.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final Hra hra;
 

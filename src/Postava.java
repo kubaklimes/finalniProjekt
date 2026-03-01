@@ -2,7 +2,7 @@ public abstract class Postava {
     /**
      * Hlavní definice třídy Postava.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final String jmeno;
 

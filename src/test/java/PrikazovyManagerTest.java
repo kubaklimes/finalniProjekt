@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Testy třídy PrikazovyManager.
  *
- * @author já,chatgpt
+ * @author Jakub Klimeš,chatgpt
  */
 public class PrikazovyManagerTest {
 

@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * Testy třídy Hektor.
  *
- * @author já
+ * @author Jakub Klimeš
  */
 public class HektorTest {
 

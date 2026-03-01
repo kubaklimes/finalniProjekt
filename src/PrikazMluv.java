@@ -2,7 +2,7 @@ public class PrikazMluv implements Prikaz {
     /**
      * Hlavní definice třídy PrikazMluv.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
         private final Hra hra;
 

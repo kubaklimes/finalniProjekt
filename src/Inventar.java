@@ -7,7 +7,7 @@ public class Inventar {
     /**
      * Hlavní definice třídy Inventar.
      *
-     * @author já,chatgpt
+     * @author Jakub Klimeš,chatgpt
      */
 
     private int kapacita;

@@ -2,7 +2,7 @@ public class PrikazInventar implements Prikaz {
     /**
      * Hlavní definice třídy PrikazInventar.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
 
     private final Hra hra;

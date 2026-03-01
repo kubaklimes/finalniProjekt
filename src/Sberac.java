@@ -2,7 +2,7 @@ public class Sberac extends DialogovaPostava {
     /**
      * Hlavní definice třídy Sberac.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     public Sberac() {
         super("Sběrač");

@@ -2,7 +2,7 @@ public class PrikazNapoveda implements Prikaz {
     /**
      * Hlavní definice třídy PrikazNapoveda.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final PrikazovyManager manager;
 

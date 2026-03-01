@@ -1,7 +1,7 @@
 /**
  * Jednoduchý testovací předmět pro unit testy.
  *
- * @author já
+ * @author Jakub Klimeš
  */
 public class TestPredmet extends Predmet {
     /**

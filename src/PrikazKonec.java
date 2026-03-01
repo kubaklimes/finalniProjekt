@@ -2,7 +2,7 @@ public class PrikazKonec implements Prikaz {
     /**
      * Hlavní definice třídy PrikazKonec.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final Hra hra;
     /**

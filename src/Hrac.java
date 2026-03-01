@@ -2,7 +2,7 @@ public class Hrac {
     /**
      * Hlavní definice třídy Hrac.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private Lokace aktualniLokace;
     private Inventar inventar;

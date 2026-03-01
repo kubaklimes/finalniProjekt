@@ -2,7 +2,7 @@ public class PrikazUkonciDialog implements Prikaz {
     /**
      * Hlavní definice třídy PrikazUkonciDialog.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final Hra hra;
 

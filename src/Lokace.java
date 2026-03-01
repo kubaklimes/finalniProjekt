@@ -6,7 +6,7 @@ public class Lokace {
     /**
      * Hlavní definice třídy Lokace.
      *
-     * @author já,stackoverflow
+     * @author Jakub Klimeš,stackoverflow
      */
 
     private String nazev;

@@ -2,7 +2,7 @@ public class PrikazPomoc implements Prikaz {
     /**
      * Hlavní definice třídy PrikazPomoc.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final PrikazovyManager manager;
 

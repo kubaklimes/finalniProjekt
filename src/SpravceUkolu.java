@@ -2,7 +2,7 @@ public class SpravceUkolu {
     /**
      * Hlavní definice třídy SpravceUkolu.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final java.util.Map<String, Ukol> ukoly = new java.util.HashMap<>();
     /**

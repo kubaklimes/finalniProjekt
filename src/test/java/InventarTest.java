@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Testy třídy Inventar.
  *
- * @author já
+ * @author Jakub Klimeš
  */
 public class InventarTest {
 

@@ -4,7 +4,7 @@ public class PrikazJdi implements Prikaz {
     /**
      * Hlavní definice třídy PrikazJdi.
      *
-     * @author uživatel
+     * @author Jakub Klimeš
      */
     private final Hra hra;
 

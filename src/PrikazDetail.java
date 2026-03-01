@@ -2,7 +2,7 @@ public class PrikazDetail implements Prikaz {
     /**
      * Hlavní definice třídy PrikazDetail.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final Hra hra;
 

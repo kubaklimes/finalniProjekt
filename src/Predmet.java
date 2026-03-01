@@ -2,7 +2,7 @@ public abstract class Predmet {
     /**
      * Hlavní definice třídy Predmet.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     private final String nazev;
     private final String popis;

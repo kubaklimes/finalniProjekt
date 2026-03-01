@@ -2,7 +2,7 @@ public class CentralniTerminal extends DialogovaPostava {
     /**
      * Hlavní definice třídy CentralniTerminal.
      *
-     * @author já
+     * @author Jakub Klimeš
      */
     public CentralniTerminal() {
         /**
